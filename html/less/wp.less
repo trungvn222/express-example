@@ -1,0 +1,81 @@
+/*----------------------------------------------------------------
+WP IMAGES
+----------------------------------------------------------------*/
+.alignnone, .alignleft, .aligncenter, .alignright { padding: 0; background: #fff; }
+.alignnone { margin: 0 20px 20px 0; }
+.alignright { float: right; margin: 0 0 20px 20px; }
+.alignleft { float: left; margin: 0 20px 20px 0; }
+.aligncenter { display: block; margin: 0 auto 20px auto; }
+a img.alignright { float: right; margin: 0 0 20px 20px; }
+a img.alignnone { margin: 0 20px 20px 0; }
+a img.alignleft { float: left; margin: 0 20px 20px 0; }
+a img.aligncenter { display: block; margin-left: auto; margin-right: auto }
+
+.wp-caption { background: #fff; max-width: 96%; text-align: center; border: 0; }
+.wp-caption.alignnone { margin: 0 20px 20px 0; }
+.wp-caption.alignleft { margin: 0 20px 20px 0; }
+.wp-caption.alignright { margin: 0 0 20px 20px; }
+.wp-caption.aligncenter { margin: 0 auto 20px auto; }
+.wp-caption img { height: auto; margin: 0; max-width: 98.5%; width: auto; }
+.wp-caption p.wp-caption-text { font-size: .85em; line-height: 1.5; margin: 10px 0 0 0; padding: 0; color: @cl-text-light; }
+
+.gallery { margin-bottom: 20px!important; }
+.gallery-caption { color: @cl-text-light; margin: 3px 0; font-size: .85em; }
+.gallery-item { float: left; margin: 0 1em 1em 0; }
+
+/*----------------------------------------------------------------
+PAGING
+----------------------------------------------------------------*/
+/* Regular paging */
+.paging { margin: 1em 0; .clearfix;
+	a { display: block; padding: .5em 1em; background: #bbb; color: #fff; text-decoration: none; }
+	a:hover { background: @cl-link; text-decoration: none; }
+}
+	.paging-prev { float: left; }
+	.paging-next { float: right; }
+	
+/* Bones paging */
+nav.page-navigation {
+	ol { .no-spacing; list-style: none!important;
+		li { .no-spacing; list-style: none!important; display: inline;
+			a { padding: .1em .5em; display: inline-block; margin: 0 .3em 0 0; border: 1px solid @cl-link; }
+		}			
+	}
+}
+
+/*----------------------------------------------------------------
+COMMENTS
+----------------------------------------------------------------*/
+#comments { margin: 1.5em 0 1em 0;
+	ol { margin: 0!important;
+		li { border: 1px dotted #bbb; list-style: none; margin: 0 0 1em 0; padding: 1em; }
+		li.thread-even { background: #f9f9f9; }
+		ul { margin: 0 0 .5em 1em!important; }
+		ul li { margin: 1em 0 0 0!important; background: none; }
+	}
+}
+	/* Meta data */
+	.comment-meta {
+		.comment-author {
+			img { float: left; margin: 0 10px 10px 0; }
+			span.fn { font-weight: bold; font-style: normal; }
+			time { color: @cl-text-light; font-size: .9em; }
+		}
+	}
+		
+	/* Comment content */		
+	.comment-content { clear: both; }
+	.reply { text-align: right; text-transform: uppercase; font-size: .8em; letter-spacing: 2px; }
+	.comment-awaiting-moderation { color: #f00; }               					
+	
+	/* Reply box */
+	#respond { padding: 1em; border: 1px solid #ccc; background: #f6f6f6;
+		input#author, input#email, input#url, textarea { display: block; width: 50%; }
+		p { padding-bottom: .5em; }
+		p.form-allowed-tags { font-size: .85em; }
+		code { display: block; padding: .7em; color: @cl-text; margin: .5em 0; border: 1px dotted #ccc; background: #fff; font-family: @font-code; }
+		textarea { width: 70%; max-width: none; }
+		#submit { .btn; }
+	}
+		
+

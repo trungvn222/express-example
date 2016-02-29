@@ -1,0 +1,34 @@
+{% extends 'admin-layout.html' %}
+{% block body %}
+<h1>{{content}}</h1>
+<hr />
+<div class="left list-column">
+	{% if list %}
+	<table>
+		<tr>
+		<th><strong>type</strong></td>
+		<th><strong>title</strong></td>
+		<th><strong>picture</strong></td>
+		<th><strong>actions</strong></td>
+		</tr>
+		{% for item in list %}
+			<tr>
+				<td>{{item.type}}</td>
+				<td>{{item.title}}</td>
+				<td><img class="list-picture" src="{{item.picture}}" /></td>
+				<td>
+					<a href="/admin?action=delete&amp;id={{item.id}}">delete</a>&nbsp;&nbsp;
+					<a href="/admin/edit/{{item.id}}">edit</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+	
+</div>
+<div class="left form-column">
+	{% autoescape false %}
+	
+	{% endautoescape %}
+</div>
+{% endblock %}

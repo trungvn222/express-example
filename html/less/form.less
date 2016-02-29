@@ -1,0 +1,84 @@
+@form-cl-err: #f00;
+@form-cl-err-bg: #ffefef;
+@form-cl-success: #01b40a;
+@form-cl-success-bg: #ecffea;
+@form-cl-required: #f00;
+
+@form-height-base: 30px;
+@form-corner-base: 0;
+@form-btn-corner-base: 0;
+
+@form-width-tiny: 70px;
+@form-width-small: 100px;
+@form-width-max: 250px;
+
+/*----------------------------------------------------------------
+FORM
+----------------------------------------------------------------*/
+.form-row { width: 100%; .clearfix; margin-bottom: 5px; }
+	.form-row-label { float: left; width: 20%; text-align: right; padding-top: 6px; }
+	.form-row-field { float: right; width: 75%; min-height: @form-height-base; line-height: @form-height-base;
+		label { margin-right: 1em; }
+	}
+	
+/*----------------------------------------------------------------
+FIELDS
+----------------------------------------------------------------*/
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+input.text { border: 1px solid @cl-border; display: inline-block; .box-sizing(border-box); background: #fff; padding: 4px 6px; height: @form-height-base; .rounded(@form-corner-base); font-family: @font-main; font-size: 1em; color: @cl-text; width: 100%; max-width: @form-width-max; .box-shadow(inset 0 1px 2px rgba(0,0,0,.075)); margin: 0;
+	&:focus { border-color: rgba(82,168,236,.8); outline: 0; outline: thin dotted \9; /* IE6-9 */ .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 3px rgba(82,168,236,.6)"); }
+	&.err { color: @form-cl-err; background: @form-cl-err-bg; }	
+}
+
+textarea { max-width: none; min-height: 150px; }
+
+select, input {	
+	&.tiny { width: @form-width-tiny; }
+	&.small { width: @form-width-small; }
+}
+
+select, label { cursor: pointer; }
+
+/*----------------------------------------------------------------
+ERROR MESSAGES
+----------------------------------------------------------------*/
+.required { color: @form-cl-required; }
+.form-alert-success , .form-alert-err { padding: .8em; margin-bottom: 1.2em; }
+.form-alert-success  { color: @form-cl-success; background: @form-cl-success-bg; }
+.form-alert-err { color: @form-cl-err; background: @form-cl-err-bg; }
+.field-valid { border: 1px solid #15b000!important; }
+.field-invalid { border: 1px solid #f00!important; }
+.form-valid-instruction { color: #15b000; padding-left: 2px; }
+.form-invalid-instruction { color: #f00; padding-left: 2px; }
+.form-err-msg { color: @form-cl-err; font-size: .85em; margin-top: .3em; }
+
+.wpcf7-validation-errors, .wpcf7-mail-sent-ng { margin: 1em 0; padding: .5em; text-align: center; color: #f00; border: 1px solid #f00; background: #fdeaea; }
+.wpcf7-mail-sent-ok { margin: 1em 0; padding: .5em; text-align: center; background: #D4E5FF; border: 1px solid #06f; color: #06f; }
+.wpcf7-not-valid-tip-no-ajax { color: #f00!important; padding: 0 0 .5em .2em!important; font-size: .9em; }
+.wpcf7-not-valid { border: 1px solid #f00!important; display: block; }
+.wpcf7-not-valid-tip { color: #f00; display: block; position: absolute; left: 0; bottom: -18px; }
+.screen-reader-response { display: none!important; }
+
+/*----------------------------------------------------------------
+BUTTONS
+----------------------------------------------------------------*/
+.btn { font-family: @font-main; font-size: 1em; .box-sizing(border-box); border: 0; padding: 0 1.5em; display: inline-block; color: @cl-text; text-decoration: none; font-weight: normal; .rounded(@form-btn-corner-base); cursor: pointer; height: @form-height-base; line-height: @form-height-base; text-align: center; background: #f3f3f3;
+	&:hover { color: @cl-text; background: #ddd; }
+	&:active { box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); }
+}
+.btn-large { font-size: 1.2em; height: @form-height-base+10; line-height: @form-height-base+10; font-weight: bold; }

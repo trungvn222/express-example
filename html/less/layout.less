@@ -1,0 +1,94 @@
+/*----------------------------------------------------------------
+GENERAL
+----------------------------------------------------------------*/
+#wrapper { width: 100%; margin: 0 auto; .clearfix; }
+/*
+	Style for Accordion
+	Breakpoint Class
+	file : responsive.less
+	screen : 991 => "block-tab bp-lt992"
+	screen : 767 => "block-tab bp-lt768"
+*/
+.block-tab { overflow: hidden;
+	&.accordion {
+		.tab-menu { display: none; }
+		.r-tabs-accordion-title { display: block; }
+	}
+	ul { .clearfix; margin-right: -2px; margin-left: -2px;
+		li { float: left; padding: 0 2px;
+			&.r-tabs-state-active {
+				a { background-color: #432a2e; color: #fff; }
+			}
+			a { text-decoration: none; color: #432a2e; display: block; padding: 5px 15px; background-color: #e8e4da; text-align: center;
+				.fa { display: block; margin-bottom: 5px; }
+				&:hover { background-color: #432a2e; color: #fff; }
+			}
+		}
+	}
+	.wapper-tab-content { }
+		.tab-content { display: none; padding: 15px 15px; border: 1px solid #cccccc; 
+			&.r-tabs-state-active { display: block; }
+		}
+	.r-tabs-accordion-title { background-color: #e8e4da; color: #432a2e; display: none;
+		&.r-tabs-state-active { background-color: #432a2e;
+			a { color: #fff; }
+		}
+		a { text-decoration: none; color: #000; display: block; padding: 15px 15px 15px 35px; position: relative;
+			.fa { position: absolute; left: 15px; top: 15px; }
+			&:hover { background-color: #432a2e; color: #fff; }
+		}
+	}
+}
+
+/*----------------------------------------------------------------
+HOMEPAGE
+----------------------------------------------------------------*/
+#menu-left { background: #ddd; width: 20%; float: left; height: 100%; position: fixed;
+	ul{ padding: 15px;
+		li{  padding: 15px 0; border-top: 1px solid #555; position: relative;
+			&:first-child { border-top: 0;}
+			a{ text-decoration: none; color: #555; font-size: 16px;
+				&:hover { color: #111;}
+
+			}
+		}
+	}
+}
+.add {  position: absolute; right: 0; top: 8px; height: 30px; width: 45px; background-color: #555; text-align: center;
+	a { color: #fff; line-height: 30px; font-size: 14px !important;}
+	&:hover { background-color: #111;}
+}
+#menu-left ul li .add a { color: #fff;}
+#main-right { background-color: #fff; width:  80%; float: right;height: auto; padding: 15px 30px;
+	section { padding-bottom: 20px;}
+	h1 { margin-bottom: 10px;}
+	p { padding-bottom: 5px;}
+	.block-row { border-bottom: 2px solid #888; }
+	.row { border-top: 1px solid #555; padding: 10px 0; width: 100%; margin: auto;
+		&:first-child { border-top: 0;}
+		p { display: inline-block; float:  left; padding-bottom: 0; padding-right: 100px;}
+		a { float:  right; text-decoration: none; height: 22px; line-height: 22px;
+		}
+		ul { float: right;
+			li { float: left; position: relative;
+			
+				a {
+					text-decoration: none; padding-left: 31px; position: relative;								
+					
+				}				
+				&:before { content: " "; position: absolute; border-left: 1px solid #555; height: 22px; left: 15px; top: 0;}
+				&:first-child:before { display: none; }			
+			}		
+		}		
+	}
+	.button { .clearfix; margin-bottom: 30px;}
+	.add-project { float: right; padding-top: 10px;
+			a { text-decoration: none;
+			}
+		}	
+	.build-link { display: inline-block; float: left; margin-top: 10px;
+			a { text-decoration: none; color: #fff; padding: 10px 15px; background-color: #555; display: block;
+				&:hover { background-color: #111;}
+			}
+	}	
+}
