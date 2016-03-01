@@ -23,6 +23,9 @@ module.exports = BaseController.extend({
 				case "edit":
 					this.edit(req, res, next);
 					break;
+				case "delete":
+					this.deleted(req, res, next);
+					break;
 			}
 		}else{
 			var v = new View(res, "admin-login");
@@ -104,60 +107,20 @@ module.exports = BaseController.extend({
 				content : "Add Mockup"
 			});
 		}
-		
-		
 	},
 	save: function( data, callback ){
 		model.save(data,callback);
 	},
-	form: function(req, res, callback) {
-		var returnTheForm = function() {
-			if(req.query && req.query.action === "edit" && req.query.id) {
-				model.getlist(function(err, records) {
-					if(records.length > 0) {
-						var record = records[0];
-						res.render('admin-record', {
-							ID: record.ID,
-							text: record.text,
-							title: record.title,
-							type: '<option value="' + record.type + '">' + record.type + '</option>',
-							picture: record.picture,
-							pictureTag: record.picture != '' ? '<img class="list-picture" src="' + record.picture + '" />' : ''
-						}, function(err, html) {
-							callback(html);
-						});
-					} else {
-						res.render('admin-record', {}, function(err, html) {
-							callback(html);
-						});
-					}
-				}, {ID: req.query.id});
-			} else {
-				res.render('admin-record', {}, function(err, html) {
-					callback(html);
-				});
-			}
-		}
-		if(req.body && req.body.formsubmitted && req.body.formsubmitted === 'yes') {
-			var data = {
-				title: req.body.title,
-				text: req.body.text,
-				type: req.body.type,
-				picture: this.handleFileUpload(req),
-				ID: req.body.ID
-			}
-			model[req.body.ID != '' ? 'update' : 'insert'](data, function(err, objects) {
-				returnTheForm();
+	deleted: function(req, callback) {
+		var id = req.params.id || "";
+		if( id !== "" ){
+			model.remove( { _id : id }, function(err){
+				if(err){
+
+				}else{
+					res.redirect('http://localhost:3000/admin');
+				}
 			});
-		} else {
-			returnTheForm();
-		}
-	},
-	del: function(req, callback) {
-		if(req.query && req.query.action === "delete" && req.query.id) {
-			model.remove(req.query.id, callback);
-		} else {
-			callback();
 		}
 	},
 	handleFileUpload: function(req) {

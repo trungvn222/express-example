@@ -10,7 +10,7 @@ module.exports.prototype = {
 	model : {},
 	init : function(){
 		if( this.db !== "" ){
-			this.conn = mongoose.connect('mongodb://' + config.mongo.host + "/" + this.db).connection;
+			this.conn = mongoose.createConnection('mongodb://' + config.mongo.host + "/" + this.db);
 			var Schema = new mongoose.Schema(this.fields);
 			this.model = mongoose.model( this.db, Schema );
 		}
